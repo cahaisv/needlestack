@@ -297,7 +297,7 @@ if(params.input_vcf) {
 
   log.info "Input BAM folder (--bam_folder)                                 : ${params.bam_folder}"
   log.info "output folder (--out_folder)                                    : ${params.out_folder}"
-  log.info "output VCF (--out_vcf)                                          : ${params.out_vcf}"  
+  log.info "output VCF (--out_vcf)                                          : ${out_vcf}"  
   log.info "Reference in fasta format (--fasta_ref)                         : ${params.fasta_ref}"
   log.info "Intervals for calling (--bed)                                   : ${input_region}"
   log.info "Number of regions to split (--nsplit)                           : ${params.nsplit}"
