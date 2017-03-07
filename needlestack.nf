@@ -203,7 +203,7 @@ if(params.input_vcf) {
 
     input:
     val out_annotated_vcf
-    file all_vcf from annotated.toList()
+    file all_vcf from annotated.collect()
 
     output:
     file "$out_annotated_vcf" into merged_vcf
@@ -315,8 +315,8 @@ if(params.input_vcf) {
   log.info(params.no_indels == true ? "Skip indels (--no_indels)                                       : yes" : "Skip indels (--no_indels)                                       : no" )
   log.info "\n"
 
-  bam = Channel.fromPath( params.bam_folder+'/*.bam' ).toList()
-  bai = Channel.fromPath( params.bam_folder+'/*.bam.bai' ).toList()
+  bam = Channel.fromPath( params.bam_folder+'/*.bam' ).collect()
+  bai = Channel.fromPath( params.bam_folder+'/*.bam.bai' ).collect()
 
   /* Building the bed file where calling would be done */
   process bed {
@@ -460,7 +460,7 @@ if(params.input_vcf) {
 
       input:
       val out_vcf
-      file all_vcf from vcf.toList()
+      file all_vcf from vcf.collect()
       file fasta_ref_fai
 
       output:
