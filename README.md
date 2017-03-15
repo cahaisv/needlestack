@@ -118,8 +118,8 @@ Type `--help` to get the full list of options. `--bam_folder` and `--fasta_ref` 
 | sb_type | SOR | Strand bias measure, either SOR, RVSB or FS |
 | sb_snv | 100 or 1000 | Strand bias threshold for SNVs (100 (1000 if FS) = no filter) |
 | sb_indel | 100 or 1000 | Strand bias threshold for indels (100 (1000 if FS) = no filter)|
-| map_qual | 20 | Min mapping quality (passed to samtools) |
-| base_qual | 20 | Min base quality (passed to samtools) |
+| map_qual | 0 | Min mapping quality (passed to samtools) |
+| base_qual | 13 | Min base quality (passed to samtools) |
 | max_DP | 30000 | Downsample coverage per sample (passed to samtools) |
 | use_file_name |   | Put this argument to use the bam file names as sample names. By default the sample name is extracted from the bam file SM tag. |
 | all_SNVs |   | Put this argument to output all SNVs, even when no variant is detected. Note that positions with zero coverage for all samples might still be missing depending on how the region split is performed |
