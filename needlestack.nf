@@ -144,7 +144,7 @@ if(params.input_vcf) {
   log.info "Output annotated file (--out_annotated_vcf)                     : ${out_annotated_vcf}"
   log.info(params.extra_robust_gl == true ? "Perform an extra-robust regression (--extra_robust_gl)          : yes" : "Perform an extra-robust regression (--extra_robust_gl)          : no" )
   log.info "output folder (--out_folder)                                    : ${params.out_folder}"
-  
+
   log.info "\n"
 
   process split_vcf {
@@ -297,7 +297,7 @@ if(params.input_vcf) {
 
   log.info "Input BAM folder (--bam_folder)                                 : ${params.bam_folder}"
   log.info "output folder (--out_folder)                                    : ${params.out_folder}"
-  log.info "output VCF (--out_vcf)                                          : ${out_vcf}"  
+  log.info "output VCF (--out_vcf)                                          : ${out_vcf}"
   log.info "Reference in fasta format (--fasta_ref)                         : ${params.fasta_ref}"
   log.info "Intervals for calling (--bed)                                   : ${input_region}"
   log.info "Number of regions to split (--nsplit)                           : ${params.nsplit}"
@@ -326,7 +326,7 @@ if(params.input_vcf) {
       shell:
       if (input_region == 'region')
       '''
-      echo !{params.region} | sed -e 's/[:|-]/	/g' > temp.bed
+      echo !{params.region} | sed -e 's/[:|-]/	/g' | awk '{print $1"	"$2"	"$3+1}' > temp.bed
       '''
 
       else if (input_region == 'bed')
